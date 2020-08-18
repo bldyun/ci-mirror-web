@@ -1,18 +1,3 @@
-
-FROM alpine:3.11
-MAINTAINER Xuanwo <xuanwo.cn@gmail.com>
-RUN apk add --update \
-    nodejs ruby ruby-dev ruby-rdoc ruby-irb ruby-io-console ruby-nokogiri \
-    gcc libc-dev libffi-dev zlib-dev libxml2-dev libxslt-dev build-base \
-    && rm -rf /var/cache/apk/*
-RUN gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/
-RUN gem install bundler \
-    && bundle config build.nokogiri --use-system-libraries
-VOLUME /src
-WORKDIR /src
-EXPOSE 4000
-CMD bundle install && jekyll server -H 0.0.0.0
-
 ARG IMG_BASE=alpine:3.11
 FROM ${IMG_BASE}
 RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.cloud.tencent.com/g" /etc/apk/repositories \
