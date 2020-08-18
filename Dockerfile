@@ -12,7 +12,7 @@ RUN gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove ht
 RUN gem install bundler \
     && bundle config build.nokogiri --use-system-libraries
 WORKDIR /app
-COPY docker /app
+COPY docker /app/docker
 RUN git clone --depth=1 https://github.com/tuna/mirror-web.git\
  && chmod +x /app/docker/docker-entrypoint.sh
 ENTRYPOINT ["/app/docker/docker-entrypoint.sh"]
