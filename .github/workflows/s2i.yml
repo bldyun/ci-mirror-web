@@ -31,7 +31,7 @@ jobs:
         with:
           fetch-depth: 0
         
-      - name: Build, Push image
+      - name: s2i
         run: |
           env
-          s2i
+          s2i .
