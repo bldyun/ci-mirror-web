@@ -21,7 +21,7 @@ env:
 jobs:
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
-  s2i-default:
+  s2i:
     runs-on: self-hosted
     if: github.event_name == 'push'
 
